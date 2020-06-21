@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio 1 - CICLOS Y FUNCIONES JAVASCRIPT (RAMON VASQUEZ)</title>
+    </head>
+    <body>
+        <script>
+            function menu(){
+                alert("..::MENU::..\n\n1 - NUMERO DEL 1 al 100\n2 - ¿DE QUE COLOR ES EL CABALLO BLANCO DE NAPOLEON?\n3 - CALCULO DEL PROMEDIO DE NOTAS\n4 - 3 FRUTAS\n5 - CANTIDAD DE VOCALES Y CONSONANTES")
+                var sc = prompt("INGRESE OPCION: ")
+                var opcion = parseInt(sc)
+                switch(opcion){
+                    case 1:
+                        var sc = prompt("INGRESE UN NUMERO DEL 1 AL 100")
+                        var num = parseInt(sc)
+                        unoAlcien(num)
+                    break
+
+                    case 2:
+                        var sc = prompt("¿DE QUE COLOR ES EL CABALLO BLANCO DE NAPOLEON?")
+                        caballoBlanco(sc)
+                    break
+
+                    case 3:
+                        var n = []
+                        var sc = prompt("INGRESE PROMEDIO DE MATEMATICAS: ")
+                        n.push(parseFloat(sc))
+                        sc = prompt("INGRESE PROMEDIO DE FISICA: ")
+                        n.push(parseFloat(sc))
+                        sc = prompt("INGRESE PROMEDIO DE CIENCIAS")
+                        n.push(parseFloat(sc))
+                        promedioNotas(n)
+                    break
+
+                    case 4:
+                        var f = []
+                        var sc = prompt("INGRESE 1RA FRUTA")
+                        f.push(sc)
+                        sc = prompt("INGRESE 2DA FRUTA")
+                        f.push(sc)
+                        sc = prompt("INGRESE 3RA FRUTA")
+                        f.push(sc)
+                        frutas(f)
+                    break
+
+                    case 5:
+                        var sc = prompt("INGRESE SU NOMBRE EN MINUSCULAS: ")
+                        consoVocal(sc)
+                    break
+
+                    default:
+                        alert("OPCION INVALIDA, DEBE INGRESAR VALORES PERMITIDOS")
+                    break
+                }
+            }
+
+            function unoAlcien(numero){
+                if(numero>0 && numero<=100)
+                    for(var x=0; x<=numero; x++){
+                        console.log(x)
+                    }
+                else{
+                    console.log("NUMERO INGRESADO NO VALIDO, SOLO SE PERMITE DESDE 1 a 100")
+                }
+            }
+
+            function caballoBlanco(ingreso){
+                while(ingreso != "blanco"){
+                    ingreso = prompt("¿DE QUE COLOR ES EL CABALLO BLANCO DE NAPOLEON?")
+                }
+                alert("CORRECTO ES: "+ ingreso)
+            }
+
+            function promedioNotas(arreglo){
+                var suma = 0.0
+                for (var x=0; x<arreglo.length; x++){
+                    suma = suma + arreglo[x]
+                }
+                var promedioFinal = suma / arreglo.length
+                alert("SU PROMEDIO ES: "+ Math.round(promedioFinal))
+            }
+
+            function frutas(arreglo){
+                for (var x=0; x<arreglo.length; x++){
+                    if(arreglo[x] != "manzana"){
+                        console.log(arreglo[x])
+                    }
+                }
+            }
+
+            function consoVocal(nombre){
+                var paso = []
+                var vocales = 0
+                var consonantes = 0
+                for(var x=0; x<nombre.length; x++){
+                   paso.push(nombre.charAt(x))
+                   if(paso[x] == 'a' || paso[x] == 'e' || paso[x] == 'i' || paso[x] == 'o' || paso[x] == 'u'){
+                       vocales = vocales+1
+                   }
+                   else{
+                       consonantes = consonantes+1
+                   }
+                }
+                alert("NOMBRE INGRESADO: "+nombre+"\nVOCALES: "+vocales+"\nCONSONANTES: "+consonantes)
+            }
+            menu()
+        </script>
+    </body>
+</html>
